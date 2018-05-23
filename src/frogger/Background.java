@@ -34,7 +34,6 @@ public class Background extends javax.swing.JComponent implements ActionListener
             } else {
                 g2d.drawImage(background2, 0, 0, this);
             }
-
         }
     }
 

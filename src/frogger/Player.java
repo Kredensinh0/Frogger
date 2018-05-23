@@ -21,6 +21,7 @@ public class Player extends javax.swing.JComponent implements KeyListener {
     private InputStream audioStream, bufferedIn;
     private AudioInputStream audioInputStream;
     private String jumpSound;
+    public static int canMove = 0; // 0 - can't, 1 - can
 
     public Player() {
         setFocusable(true);
@@ -84,41 +85,43 @@ public class Player extends javax.swing.JComponent implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        detectWin();
-        int key = e.getKeyCode();
-        jumpSound();
-        switch (key) {
-            case KeyEvent.VK_UP:
-                skinChange = 3;
-                if (y > 5) {
-                    y -= 50;
-                    detectWin();
-                }
-                repaint();
-                break;
-            case KeyEvent.VK_DOWN:
-                skinChange = 4;
-                if (y < 500) {
-                    y += 50;
-                }
-                repaint();
-                break;
-            case KeyEvent.VK_RIGHT:
-                skinChange = 1;
-                if (x < 400) {
-                    x += 50;
-                }
-                repaint();
-                break;
-            case KeyEvent.VK_LEFT:
-                skinChange = 2;
-                if (x > 25) {
-                    x -= 50;
-                }
-                repaint();
-                break;
-            default:
-                break;
+        if (canMove == 1) {
+            detectWin();
+            int key = e.getKeyCode();
+            jumpSound();
+            switch (key) {
+                case KeyEvent.VK_UP:
+                    skinChange = 3;
+                    if (y > 5) {
+                        y -= 50;
+                        detectWin();
+                    }
+                    repaint();
+                    break;
+                case KeyEvent.VK_DOWN:
+                    skinChange = 4;
+                    if (y < 500) {
+                        y += 50;
+                    }
+                    repaint();
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    skinChange = 1;
+                    if (x < 400) {
+                        x += 50;
+                    }
+                    repaint();
+                    break;
+                case KeyEvent.VK_LEFT:
+                    skinChange = 2;
+                    if (x > 25) {
+                        x -= 50;
+                    }
+                    repaint();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

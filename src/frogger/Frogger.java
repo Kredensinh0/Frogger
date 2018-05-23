@@ -61,9 +61,9 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
             int woodY = 55 + (woodLine * 50);
             wood1.addWood(xWood, woodY);
         } else {
-//            winSound();
             Player.x = 225;
             Player.y = 505;
+            //if there was a new level 
 //            Car.getCoordinates().clear();
 //            Car.getCars().clear();
 //            Car.getRects().clear();
@@ -74,29 +74,15 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
         }
     }
 
-    public void winSound() {
-        try {
-            audioSample = AudioSystem.getClip();
-            audioStream = this.getClass().getResourceAsStream(winSound);
-            bufferedIn = new BufferedInputStream(audioStream);
-            audioInputStream = AudioSystem.getAudioInputStream(bufferedIn);
-            audioSample.open(audioInputStream);
-            FloatControl volume = (FloatControl) audioSample.getControl(FloatControl.Type.MASTER_GAIN);
-            volume.setValue(-20.0f);
-            audioSample.start();
-        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException ex) {
-        }
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        background2 = new frogger.Background();
+        background1 = new frogger.Background();
         carTest = new frogger.Car();
         wood1 = new frogger.Wood();
         player1 = new frogger.Player();
+        title1 = new frogger.Title();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Frogger");
@@ -108,11 +94,11 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
         player1.setLayout(player1Layout);
         player1Layout.setHorizontalGroup(
             player1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addComponent(title1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         player1Layout.setVerticalGroup(
             player1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addComponent(title1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout wood1Layout = new javax.swing.GroupLayout(wood1);
@@ -141,41 +127,28 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
             .addComponent(wood1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout background2Layout = new javax.swing.GroupLayout(background2);
-        background2.setLayout(background2Layout);
-        background2Layout.setHorizontalGroup(
-            background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout background1Layout = new javax.swing.GroupLayout(background1);
+        background1.setLayout(background1Layout);
+        background1Layout.setHorizontalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(carTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        background2Layout.setVerticalGroup(
-            background2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(carTest, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(background2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(background2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        background1Layout.setVerticalGroup(
+            background1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(background1Layout.createSequentialGroup()
+                .addComponent(carTest, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -218,10 +191,10 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private frogger.Background background2;
+    private frogger.Background background1;
     private frogger.Car carTest;
-    private javax.swing.JPanel jPanel1;
     private frogger.Player player1;
+    private frogger.Title title1;
     private frogger.Wood wood1;
     // End of variables declaration//GEN-END:variables
 
