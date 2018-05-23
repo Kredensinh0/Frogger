@@ -16,7 +16,7 @@ public class Title extends JComponent implements MouseListener, ActionListener {
 
     private BufferedImage title1, title2;
     private int disp = 0, titleChange = 0;
-    Timer timer = new Timer(500, this);
+    Timer timer = new Timer(400, this);
 
     public Title() {
         addMouseListener(this);
