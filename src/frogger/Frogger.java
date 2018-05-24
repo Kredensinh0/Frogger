@@ -55,12 +55,13 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
             while (woodLine == 0 || woodLine == 1) {
                 woodLine = (int) ((Math.random() * 4));
             }
-            
+
             int xWood = ThreadLocalRandom.current().nextInt(-180, -90 + 1);
-            
+
             int woodY = 55 + (woodLine * 50);
             wood1.addWood(xWood, woodY);
         } else {
+            Player.win = false;
             Player.x = 225;
             Player.y = 505;
             //if there was a new level 
@@ -70,7 +71,6 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
 //            Wood.getCoordinates().clear();
 //            Wood.getWoods().clear();
 //            Wood.getRects().clear();
-            Player.win = false;
         }
     }
 
@@ -82,7 +82,8 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
         carTest = new frogger.Car();
         wood1 = new frogger.Wood();
         player1 = new frogger.Player();
-        title1 = new frogger.Title();
+        stats2 = new frogger.Stats();
+        title2 = new frogger.Title();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Frogger");
@@ -90,15 +91,18 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
         setName("frame"); // NOI18N
         setResizable(false);
 
+        stats2.add(title2);
+        title2.setBounds(0, 0, 500, 550);
+
         javax.swing.GroupLayout player1Layout = new javax.swing.GroupLayout(player1);
         player1.setLayout(player1Layout);
         player1Layout.setHorizontalGroup(
             player1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(title1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(stats2, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         player1Layout.setVerticalGroup(
             player1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(title1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+            .addComponent(stats2, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout wood1Layout = new javax.swing.GroupLayout(wood1);
@@ -194,7 +198,8 @@ public class Frogger extends javax.swing.JFrame implements ActionListener {
     private frogger.Background background1;
     private frogger.Car carTest;
     private frogger.Player player1;
-    private frogger.Title title1;
+    private frogger.Stats stats2;
+    private frogger.Title title2;
     private frogger.Wood wood1;
     // End of variables declaration//GEN-END:variables
 
